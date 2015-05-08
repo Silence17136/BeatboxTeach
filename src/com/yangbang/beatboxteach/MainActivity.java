@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	int i=0;
 	int j=1;
 	String s="123";
+	float f=0.5;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

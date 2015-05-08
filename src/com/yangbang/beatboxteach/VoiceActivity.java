@@ -20,7 +20,6 @@ public class VoiceActivity extends BaseActivity implements OnClickListener {
 	TitleBar titlebar_voice;
 	ListView activity_voice_lv;
 	Title title;
-	String str="ybyb";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

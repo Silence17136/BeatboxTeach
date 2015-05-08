@@ -8,14 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
 import com.yangbang.beatboxteach.adapter.MyFragmentPageAdapter;
-import com.yangbang.beatboxteach.db.DataHelper;
 import com.yangbang.beatboxteach.fragment.TextTeachFragment;
 import com.yangbang.beatboxteach.view.TitleBar;
 

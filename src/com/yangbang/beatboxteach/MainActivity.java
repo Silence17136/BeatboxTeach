@@ -29,7 +29,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	float tempArg2;
 	float leftSize; 
 	float RightSize;
-	double d=10000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

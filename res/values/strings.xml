@@ -1,0 +1,43 @@
+<resources>
+
+    <string name="app_name">BeatboxTeach</string>
+
+    <string-array name="text_teach">
+        <item>基础音</item>
+        <item>特殊音</item>
+        <item>段子</item>
+    </string-array>
+    <string-array name="text_base_voice_teach">
+        <item>大鼓（kick）</item>
+        <item>小鼓（dnare）</item>
+        <item>镲（hi-hit）</item>
+    </string-array>
+    <string-array name="text_special_voice_teach">
+        <item>内鼓</item>
+        <item>拉链音</item>
+        <item>破鼓</item>
+        <item>空心弹舌</item>
+        <item>水滴音</item>
+    </string-array>
+    <string-array name="text_segment_teach">
+        <item>4beat</item>
+        <item>8beat</item>
+        <item>16beat</item>
+        <item>wind</item>
+        <item>water</item>
+    </string-array>
+    <string-array name="video_teach">
+        <item>double教学系列</item>
+        <item>飞机教学系列</item>
+        <item>肥King教学系列</item>
+        <item>Krnfx教学系列</item>
+    </string-array>
+    <string-array name="video_double_teach">
+        <item>大鼓</item>
+        <item>小鼓</item>
+        <item>镲</item>
+        <item>警笛</item>
+        <item>喇叭</item>
+    </string-array>
+
+</resources>

@@ -51,7 +51,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		activity_main_bar_tv1.setTextSize(15);
 		activity_main_bar_tv0.setOnClickListener(this);
 		activity_main_bar_tv1.setOnClickListener(this);
-		// scaleAnim=new ScaleAnimation(fromX, toX, fromY, toY)
 	}
 
 	private void initPageFragment() {

@@ -27,7 +27,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	List<Fragment> fragments = new ArrayList<Fragment>();
 	Animation scaleAnim;
 	float tempArg2;
-	float leftSize;
+	float leftSize; 
 	float RightSize;
 
 	@Override

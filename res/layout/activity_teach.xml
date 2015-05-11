@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.yangbang.beatboxteach.view.TitleBar
+        android:id="@+id/titleBar_teach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.yangbang.beatboxteach.view.TitleBar>
+
+    <TextView
+        android:id="@+id/activity_teach_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_5"
+        android:lineSpacingExtra="@dimen/dimen_5"
+        android:lineSpacingMultiplier="1"
+        android:text="@string/test_long_content"
+        android:textSize="@dimen/textsize_16" />
+
+    <LinearLayout
+        android:id="@+id/activity_teach_use_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/dimen_5"
+        android:lineSpacingMultiplier="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10"
+            android:text="@string/use"
+            android:textSize="@dimen/textsize_16" />
+
+        <TextView
+            android:id="@+id/activity_teach_use_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:lineSpacingExtra="@dimen/dimen_5"
+            android:lineSpacingMultiplier="1"
+            android:text="@string/test_short_content" />
+    </LinearLayout>
+
+</LinearLayout>

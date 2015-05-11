@@ -27,6 +27,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	float tempArg2;
 	float leftSize; 
 	float RightSize;
+	String str="张三";
+	String str2="李四";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

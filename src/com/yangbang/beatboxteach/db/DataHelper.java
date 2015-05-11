@@ -15,9 +15,9 @@ import com.yangbang.beatboxteach.R;
 import com.yangbang.beatboxteach.entity.Title;
 
 public class DataHelper {
-	// Êý¾Ý¿âÃû³Æ
+	// ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
 	private static String DB_NAME = "BeatboxTeach.db";
-	// Êý¾Ý¿â°æ±¾
+	// ï¿½ï¿½ï¿½Ý¿ï¿½æ±¾
 	public static int DB_VERSION = 2;
 	private SQLiteDatabase db;
 	private SqliteHelper dbHelper;
@@ -34,26 +34,26 @@ public class DataHelper {
 		dbHelper.close();
 	}
 
-	public List<Title> getTextTeacList(int type) {
-		List<Title> textTeachs = new ArrayList<Title>();
-		Cursor cursor = db.query(SqliteHelper.TB_NAME_TITLE, null, "type="
-				+ type, null, null, null, null);
-		// Cursor cursor = db.query(SqliteHelper.TB_NAME_TEXT_TEACH, null,
-		// "type="
-		// + type, null, null, null, TextTeach.getFieldId() + " DESC");
-		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
-			Title textTeach = new Title();
-			textTeach.setTitle_id(cursor.getInt(cursor
-					.getColumnIndex("title_id")));
-			textTeach.setName(cursor.getString(cursor.getColumnIndex("name")));
-			textTeach.setType(cursor.getInt(cursor.getColumnIndex("type")));
-			textTeachs.add(textTeach);
-			cursor.moveToNext();
-		}
-		cursor.close();
-		return textTeachs;
-	}
+//	public List<Title> getTextTeacList(int type) {
+//		List<Title> textTeachs = new ArrayList<Title>();
+//		Cursor cursor = db.query(SqliteHelper.TB_NAME_TITLE, null, "type="
+//				+ type, null, null, null, null);
+//		// Cursor cursor = db.query(SqliteHelper.TB_NAME_TEXT_TEACH, null,
+//		// "type="
+//		// + type, null, null, null, TextTeach.getFieldId() + " DESC");
+//		cursor.moveToFirst();
+//		while (!cursor.isAfterLast()) {
+//			Title textTeach = new Title();
+//			textTeach.setTitle_id(cursor.getInt(cursor
+//					.getColumnIndex("title_id")));
+//			textTeach.setName(cursor.getString(cursor.getColumnIndex("name")));
+//			textTeach.setType(cursor.getInt(cursor.getColumnIndex("type")));
+//			textTeachs.add(textTeach);
+//			cursor.moveToNext();
+//		}
+//		cursor.close();
+//		return textTeachs;
+//	}
 
 	public void insertAllData() {
 		String[] textTeachs = context.getResources().getStringArray(
@@ -116,21 +116,21 @@ public class DataHelper {
 	}
 
 	/**
-	 * Í¨¹ýÀàÃûºÍÉ¸Ñ¡Ìõ¼þ»ñÈ¡¶ÔÓ¦µÄ¶ÔÏóÁÐ±í
+	 * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ó¦ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 	 * 
 	 * @param className
-	 *            ÊµÌå¶ÔÏóÃû£¨°üÃû+ÀàÃû£©
+	 *            Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param whereMap
-	 *            selection£¨É¸Ñ¡Ìõ¼þmap¼¯ºÏ£©
+	 *            selectionï¿½ï¿½É¸Ñ¡ï¿½ï¿½ï¿½ï¿½mapï¿½ï¿½ï¿½Ï£ï¿½
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public <T> List<T> getObjectList(String className,
 			Map<String, String> whereMap) {
-		// µÃµ½±íÃû×Ö
+		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String tableName = className.substring(className.lastIndexOf(".") + 1,
 				className.length());
-		// ¸ù¾ÝÀàÃûÀ´´´½¨Class¶ÔÏó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Classï¿½ï¿½ï¿½ï¿½
 		Class c = null;
 		try {
 			c = Class.forName(className);
@@ -139,7 +139,7 @@ public class DataHelper {
 
 			e1.printStackTrace();
 		}
-		// µÃµ½¶ÔÏóµÄ·½·¨Êý×é
+		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Method[] methods = c.getMethods();
 		List<T> objects = new ArrayList<T>();
 		StringBuilder builder = new StringBuilder();
@@ -156,7 +156,7 @@ public class DataHelper {
 				null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			// ´´½¨ÀàµÄÊµÀý
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
 			T obj = null;
 			try {
 				obj = (T) c.newInstance();
@@ -167,17 +167,17 @@ public class DataHelper {
 			}
 			for (Method method : methods) {
 				String methodName = method.getName();
-				// Èç¹û¶ÔÏóµÄ·½·¨ÒÔset¿ªÍ·
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½setï¿½ï¿½Í·
 				if (methodName.startsWith("set")) {
-					// ¸ù¾Ý·½·¨Ãû×ÖµÃµ½Êý¾Ý±í¸ñÖÐ×Ö¶ÎµÄÃû×Ö
+					// ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÃµï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶Îµï¿½ï¿½ï¿½ï¿½ï¿½
 					String columnName = methodName.substring(3,
 							methodName.length());
 					columnName = columnName.toLowerCase();
 					Log.i("columnName", columnName);
-					// µÃµ½·½·¨µÄ²ÎÊýÀàÐÍ
+					// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					Class[] parmts = method.getParameterTypes();
 					if (parmts[0] == String.class) {
-						// Èç¹û²ÎÊýÎªStringÀàÐÍ£¬Ôò´Ó½á¹û¼¯ÖÐ°´ÕÕÁÐÃûÈ¡µÃ¶ÔÓ¦µÄÖµ£¬²¢ÇÒÖ´ÐÐ¸Äset·½·¨
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªStringï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ã¶ï¿½Ó¦ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸ï¿½setï¿½ï¿½ï¿½ï¿½
 						try {
 							method.invoke(obj, cursor.getString(cursor
 									.getColumnIndex(columnName)));

@@ -1,17 +1,19 @@
 package com.yangbang.beatboxteach.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yangbang.beatboxteach.R;
 
-public class TitleBar extends LinearLayout {
+public class TitleBar extends LinearLayout implements OnClickListener {
 	private ImageView left_img;
 	private TextView title_bar_text;
 	private ImageView right_img;
@@ -55,10 +57,16 @@ public class TitleBar extends LinearLayout {
 		}
 	}
 
-	public void setLeftListener(OnClickListener listener) {
-		if (listener != null) {
+	public void setLeftListener(final Activity activity) {
+		if (activity != null) {
 			left_img.setVisibility(View.VISIBLE);
-			left_img.setOnClickListener(listener);
+			left_img.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					activity.finish();
+				}
+			});
 		} else {
 			left_img.setVisibility(View.INVISIBLE);
 		}
@@ -75,6 +83,12 @@ public class TitleBar extends LinearLayout {
 		} else {
 			right_img.setVisibility(View.INVISIBLE);
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -16,6 +16,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.lidroid.xutils.DbUtils;
+import com.lidroid.xutils.db.sqlite.Selector;
+import com.lidroid.xutils.exception.DbException;
 import com.yangbang.beatboxteach.R;
 import com.yangbang.beatboxteach.VoiceActivity;
 import com.yangbang.beatboxteach.adapter.TextTeachAdapter;
@@ -46,12 +49,20 @@ public class TextTeachFragment extends Fragment implements OnItemClickListener {
 					R.layout.fragment_text_teach, null);
 			fragment_text_teach_lv = (ListView) view
 					.findViewById(R.id.fragment_text_teach_lv);
-			Class<Title> class1 = Title.class;
-			List<Title> textTeachs = new ArrayList<Title>();
-			Map<String, String> whereMap = new HashMap<String, String>();
-			whereMap.put("type", type + "");
-			textTeachs = MyApplication.dataHelper.getObjectList(
-					class1.getName(), whereMap);
+			// Class<Title> class1 = Title.class;
+			// List<Title> textTeachs = new ArrayList<Title>();
+			// Map<String, String> whereMap = new HashMap<String, String>();
+			// whereMap.put("type", type + "");
+			// textTeachs = MyApplication.dataHelper.getObjectList(
+			// class1.getName(), whereMap);
+			List<Title> textTeachs = null;
+			try {
+				textTeachs = MyApplication.dbUtils.findAll(Selector.from(Title.class).where(
+						"type", "=", type));
+			} catch (DbException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			fragment_text_teach_lv.setAdapter(new TextTeachAdapter(
 					getActivity(), textTeachs));
 		} else if (type == 2) {
@@ -60,12 +71,20 @@ public class TextTeachFragment extends Fragment implements OnItemClickListener {
 			fragment_text_teach_lv = (ListView) view
 					.findViewById(R.id.fragment_text_teach_lv);
 
-			Class<Title> class1 = Title.class;
-			List<Title> textTeachs = new ArrayList<Title>();
-			Map<String, String> whereMap = new HashMap<String, String>();
-			whereMap.put("type", type + "");
-			textTeachs = MyApplication.dataHelper.getObjectList(
-					class1.getName(), whereMap);
+			// Class<Title> class1 = Title.class;
+			// List<Title> textTeachs = new ArrayList<Title>();
+			// Map<String, String> whereMap = new HashMap<String, String>();
+			// whereMap.put("type", type + "");
+			// textTeachs = MyApplication.dataHelper.getObjectList(
+			// class1.getName(), whereMap);
+			List<Title> textTeachs = null;
+			try {
+				textTeachs = MyApplication.dbUtils.findAll(Selector.from(Title.class).where(
+						"type", "=", type));
+			} catch (DbException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			fragment_text_teach_lv.setAdapter(new TextTeachAdapter(
 					getActivity(), textTeachs));
 			//

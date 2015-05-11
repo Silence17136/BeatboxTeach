@@ -3,6 +3,7 @@ package com.yangbang.beatboxteach.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +31,8 @@ public class TextTeachAdapter extends AbsBaseAdapter<Title> {
 				R.id.fragment_text_teach_listitem_img);
 		TextView textView = ViewHolders.get(convertView,
 				R.id.fragment_text_teach_listitem_tv);
+		Log.i("YANGBANG", "title-->" + dataList.get(position).toString());
 		textView.setText(dataList.get(position).getName());
 		return convertView;
 	}
-
 }

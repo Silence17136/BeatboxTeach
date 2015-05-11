@@ -2,7 +2,11 @@ package com.yangbang.beatboxteach.entity;
 
 import java.io.Serializable;
 
-public class Title implements Serializable {
+import com.lidroid.xutils.db.annotation.Column;
+import com.lidroid.xutils.db.annotation.Table;
+
+@Table(name = "title")
+public class Title extends EntityBase implements Serializable {
 	private static final String FIELD_ID = "title_id";
 	private static final String FIELD_NAME = "name";
 	private static final String FIELD_TYPE = "type";
@@ -10,17 +14,20 @@ public class Title implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int title_id;
+	// private int title_id;
+	@Column(column = "name")
 	private String name;
-	private int type;// 1´ú±íÎÄ×Ö½ÌÑ§¡¢2´ú±íÊÓÆµ½ÌÑ§
 
-	public int getTitle_id() {
-		return title_id;
-	}
+	@Column(column = "type")
+	private int type;// 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½Ñ§ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Ñ§
 
-	public void setTitle_id(int title_id) {
-		this.title_id = title_id;
-	}
+	// public int getTitle_id() {
+	// return title_id;
+	// }
+	//
+	// public void setTitle_id(int title_id) {
+	// this.title_id = title_id;
+	// }
 
 	public String getName() {
 		return name;
@@ -52,6 +59,12 @@ public class Title implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "title{id=" + getId() + ",name=" + getName() + ",type="
+				+ getType() + "}";
 	}
 
 }

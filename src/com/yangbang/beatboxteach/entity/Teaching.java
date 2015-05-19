@@ -31,6 +31,8 @@ public class Teaching extends EntityBase implements Serializable {
 
 	@Foreign(column = "voiceId", foreign = "id")
 	public Voice voice;
+	
+	
 
 	// public int getTeach_id() {
 	// return teach_id;
@@ -55,6 +57,22 @@ public class Teaching extends EntityBase implements Serializable {
 	// public void setVoice_id(int voice_id) {
 	// this.voice_id = voice_id;
 	// }
+
+	public Title getTitle() {
+		return title;
+	}
+
+	public void setTitle(Title title) {
+		this.title = title;
+	}
+
+	public Voice getVoice() {
+		return voice;
+	}
+
+	public void setVoice(Voice voice) {
+		this.voice = voice;
+	}
 
 	public String getContent() {
 		return content;

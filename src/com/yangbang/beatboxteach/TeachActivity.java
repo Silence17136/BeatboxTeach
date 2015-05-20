@@ -65,7 +65,8 @@ public class TeachActivity extends BaseActivity {
 			Log.i("YANGBANG", "type-->" + teaching.getType() + ",content-->"
 					+ teaching.getContent());
 			if (teaching.getType() == 1) {// 文字
-				activity_teach_content_tv.setText(teaching.getContent());
+				activity_teach_content_tv.setText(teaching.getContent()
+						.replace("\\n", "\n"));
 			} else if (teaching.getType() == 2) {// 视频
 				activity_teach_webview.setVisibility(View.VISIBLE);
 				activity_teach_scroll.setVisibility(View.GONE);

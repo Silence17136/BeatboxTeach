@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="titlebar_hight">50dp</dimen>
+    <dimen name="titlebar_hight">45dp</dimen>
     
     <!-- 所有字体的大小 -->
     <dimen name="top_size">18sp</dimen>

@@ -34,6 +34,7 @@
                 android:layout_margin="@dimen/dimen_5"
                 android:lineSpacingExtra="@dimen/dimen_5"
                 android:lineSpacingMultiplier="1"
+                android:singleLine="false"
                 android:text="@string/test_long_content"
                 android:textSize="@dimen/textsize_16" />
 

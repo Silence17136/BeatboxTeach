@@ -26,28 +26,49 @@ public class Teaching extends EntityBase implements Serializable {
 	@Column(column = "type")
 	private int type;
 
-	@Foreign(column = "titleId", foreign = "id")
-	public Title title;
+//	@Foreign(column = "titleId", foreign = "id")
+//	public Title title;
+//
+//	@Foreign(column = "voiceId", foreign = "id")
+//	public Voice voice;
 
-	@Foreign(column = "voiceId", foreign = "id")
-	public Voice voice;
-	
+	@Column(column = "titleName")
+	private String titleName;
 
-	public Title getTitle() {
-		return title;
+	@Column(column = "voiceName")
+	private String voiceName;
+
+	public String getTitleName() {
+		return titleName;
 	}
 
-	public void setTitle(Title title) {
-		this.title = title;
+	public void setTitleName(String titleName) {
+		this.titleName = titleName;
 	}
 
-	public Voice getVoice() {
-		return voice;
+	public String getVoiceName() {
+		return voiceName;
 	}
 
-	public void setVoice(Voice voice) {
-		this.voice = voice;
+	public void setVoiceName(String voiceName) {
+		this.voiceName = voiceName;
 	}
+
+//	public Title getTitle() {
+//		return title;
+//	}
+//
+//	public void setTitle(Title title) {
+//		this.title = title;
+//	}
+//
+//	public Voice getVoice() {
+//		return voice;
+//	}
+//
+//	public void setVoice(Voice voice) {
+//		this.voice = voice;
+//	}
 
 	public String getContent() {
 		return content;

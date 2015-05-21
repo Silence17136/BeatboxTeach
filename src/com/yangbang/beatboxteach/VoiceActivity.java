@@ -49,7 +49,7 @@ public class VoiceActivity extends BaseActivity implements OnClickListener,
 		List<Voice> dataList = null;
 		try {
 			dataList = MyApplication.dbUtils.findAll(Selector.from(Voice.class)
-					.where("titleId", "=", title.getId()));
+					.where("titleName", "=", title.getName()));
 		} catch (DbException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

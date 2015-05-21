@@ -18,40 +18,34 @@ public class Voice extends EntityBase implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	// private int voice_id;
-	// private int title_id;
 	@Column(column = "name")
 	private String name;
 
 	@Column(column = "type")
 	private int type;
 
-	@Foreign(column = "titleId", foreign = "id")
-	public Title title;
+//	@Foreign(column = "titleId", foreign = "id")
+//	public Title title;
 
-	// public int getVoice_id() {
-	// return voice_id;
-	// }
-	//
-	// public void setVoice_id(int voice_id) {
-	// this.voice_id = voice_id;
-	// }
-	//
-	// public int getTitle_id() {
-	// return title_id;
-	// }
-	//
-	// public void setTitle_id(int title_id) {
-	// this.title_id = title_id;
-	// }
+	@Column(column = "titleName")
+	private String titleName;
 
-	public Title getTitle() {
-		return title;
+
+	public String getTitleName() {
+		return titleName;
 	}
 
-	public void setTitle(Title title) {
-		this.title = title;
+	public void setTitleName(String titleName) {
+		this.titleName = titleName;
 	}
+
+//	public Title getTitle() {
+//		return title;
+//	}
+//
+//	public void setTitle(Title title) {
+//		this.title = title;
+//	}
 
 	public String getName() {
 		return name;
@@ -91,7 +85,7 @@ public class Voice extends EntityBase implements Serializable {
 
 	@Override
 	public String toString() {
-		return "title{id=" + getId() + ",titleId=" + getTitle().getId()
+		return "title{id=" + getId() + ",titleId="
 				+ ",name=" + getName() + ",type=" + getType() + "}";
 	}
 

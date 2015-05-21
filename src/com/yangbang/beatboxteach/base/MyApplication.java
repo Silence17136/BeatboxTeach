@@ -18,6 +18,8 @@ public class MyApplication extends Application {
 		super.onCreate();
 		application = this;
 		dbUtils = DbUtils.create(this);
+		dbUtils.configAllowTransaction(true);
+		dbUtils.configDebug(true);
 		initPreferences();
 		initDatabase();
 	}

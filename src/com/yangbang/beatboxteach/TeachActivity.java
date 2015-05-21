@@ -56,8 +56,8 @@ public class TeachActivity extends BaseActivity {
 		try {
 			teaching = MyApplication.dbUtils.findFirst(Selector
 					.from(Teaching.class)
-					.where("titleId", "=", voice.getTitle().getId())
-					.and(WhereBuilder.b("voiceId", "=", voice.getId())));
+					.where("titleName", "=", voice.getTitleName())
+					.and(WhereBuilder.b("voiceName", "=", voice.getName())));
 		} catch (DbException e) {
 			e.printStackTrace();
 		}

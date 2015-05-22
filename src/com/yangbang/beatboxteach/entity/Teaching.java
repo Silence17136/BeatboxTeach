@@ -26,17 +26,28 @@ public class Teaching extends EntityBase implements Serializable {
 	@Column(column = "type")
 	private int type;
 
-//	@Foreign(column = "titleId", foreign = "id")
-//	public Title title;
-//
-//	@Foreign(column = "voiceId", foreign = "id")
-//	public Voice voice;
+	// @Foreign(column = "titleId", foreign = "id")
+	// public Title title;
+	//
+	// @Foreign(column = "voiceId", foreign = "id")
+	// public Voice voice;
 
 	@Column(column = "titleName")
-	private String titleName;
+	private String titleName;// 外标题名
 
 	@Column(column = "voiceName")
-	private String voiceName;
+	private String voiceName;// 音名
+
+	@Column(column = "tidyName")
+	private String tidyName;// 精简标题名
+
+	public String getTidyName() {
+		return tidyName;
+	}
+
+	public void setTidyName(String tidyName) {
+		this.tidyName = tidyName;
+	}
 
 	public String getTitleName() {
 		return titleName;
@@ -54,21 +65,21 @@ public class Teaching extends EntityBase implements Serializable {
 		this.voiceName = voiceName;
 	}
 
-//	public Title getTitle() {
-//		return title;
-//	}
-//
-//	public void setTitle(Title title) {
-//		this.title = title;
-//	}
-//
-//	public Voice getVoice() {
-//		return voice;
-//	}
-//
-//	public void setVoice(Voice voice) {
-//		this.voice = voice;
-//	}
+	// public Title getTitle() {
+	// return title;
+	// }
+	//
+	// public void setTitle(Title title) {
+	// this.title = title;
+	// }
+	//
+	// public Voice getVoice() {
+	// return voice;
+	// }
+	//
+	// public void setVoice(Voice voice) {
+	// this.voice = voice;
+	// }
 
 	public String getContent() {
 		return content;

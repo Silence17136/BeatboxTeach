@@ -19,7 +19,10 @@ public class Title extends EntityBase implements Serializable {
 	private String name;
 
 	@Column(column = "type")
-	private int type;// 1�������ֽ�ѧ��2������Ƶ��ѧ
+	private int type;// 1代表文字、2代表视频
+
+	@Column(column = "description")
+	private String description;
 
 	// public int getTitle_id() {
 	// return title_id;

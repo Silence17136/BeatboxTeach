@@ -38,7 +38,7 @@ public class TeachActivity extends BaseActivity {
 		titlebar = (TitleBar) this.findViewById(R.id.titleBar_teach);
 		titlebar.setLeftImg(R.drawable.back);
 		titlebar.setLeftListener(this);
-		titlebar.setTitleText(voice.getName());
+		// titlebar.setTitleText(voice.getName());
 		activity_teach_webview = (WebView) this
 				.findViewById(R.id.activity_teach_webview);
 		activity_teach_scroll = (ScrollView) this
@@ -62,6 +62,7 @@ public class TeachActivity extends BaseActivity {
 			e.printStackTrace();
 		}
 		if (teaching != null) {
+			titlebar.setTitleText(teaching.getTidyName());
 			Log.i("YANGBANG", "type-->" + teaching.getType() + ",content-->"
 					+ teaching.getContent());
 			if (teaching.getType() == 1) {// 文字

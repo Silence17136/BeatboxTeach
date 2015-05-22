@@ -21,7 +21,7 @@ public class MyApplication extends Application {
 		dbUtils.configAllowTransaction(true);
 		dbUtils.configDebug(true);
 		initPreferences();
-		initDatabase();
+		// initDatabase();
 	}
 
 	private void initPreferences() {
@@ -32,8 +32,8 @@ public class MyApplication extends Application {
 		return application;
 	}
 
-	private void initDatabase() {
-		InsertData.insertAllData();
-	}
+	// private void initDatabase() {
+	// InsertData.insertAllData();
+	// }
 
 }

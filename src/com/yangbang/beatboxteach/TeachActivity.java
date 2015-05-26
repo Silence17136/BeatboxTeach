@@ -1,6 +1,7 @@
 package com.yangbang.beatboxteach;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -95,6 +96,14 @@ public class TeachActivity extends BaseActivity {
 
 						});
 			}
+		}
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			activity_teach_webview.onPause(); // 暂停网页中正在播放的视频
 		}
 	}
 

@@ -3,6 +3,7 @@ package com.yangbang.beatboxteach;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -25,10 +26,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	List<Fragment> fragments = new ArrayList<Fragment>();
 	Animation scaleAnim;
 	float tempArg2;
-	float leftSize; 
+	float leftSize;
 	float RightSize;
-	String str="张三";
-	String str2="李四";
+	String str = "张三";
+	String str2 = "李四";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	private void initView() {
 		titlebar = (TitleBar) this.findViewById(R.id.title_bar);
 		titlebar.setTitleText("BeatboxTeach");
+		titlebar.setRightImg(R.drawable.set);
 		titlebar.setRightListener(this);
 		activity_main_bar_tv0 = (TextView) this
 				.findViewById(R.id.activity_main_bar_tv0);
@@ -119,7 +121,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.right_img:
-
+			startActivity(new Intent(MainActivity.this, SetActivity.class));
 			break;
 		case R.id.activity_main_bar_tv0:
 			viewpage.setCurrentItem(0);

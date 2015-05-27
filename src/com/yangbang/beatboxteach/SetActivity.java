@@ -27,8 +27,8 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 
 	final UMSocialService mController = UMServiceFactory
 			.getUMSocialService("com.umeng.share");
-	String appID = "wx967daebe835fbeac";
-	String appSecret = "5fa9e68ca3970e87a1f83e563c8dcbce";
+	String appID = "wx283e5a5adc6f7bb8";
+	String appSecret = "c40656ded226f9a9b08ed7ba867f3b36";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +61,7 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 		mController
 				.setShareContent("友盟社会化组件（SDK）让移动应用快速整合社交分享功能，http://www.umeng.com/social");
 		// 设置分享图片, 参数2为图片的url地址
-		mController.setShareMedia(new UMImage(this,
-				"http://www.umeng.com/images/pic/banner_module_social.png"));
+		mController.setShareMedia(new UMImage(this, R.drawable.ic_launcher));
 		// 设置分享图片，参数2为本地图片的资源引用
 		// mController.setShareMedia(new UMImage(getActivity(),
 		// R.drawable.icon));
@@ -104,8 +103,8 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 		QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler(this,
 				"100424468", "c7394704798a158208a74ab60104f0ba");
 		qZoneSsoHandler.addToSocialSDK();
-		
-		//设置新浪SSO handler
+
+		// 设置新浪SSO handler
 		mController.getConfig().setSsoHandler(new SinaSsoHandler());
 	}
 
@@ -124,7 +123,7 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 
 			break;
 		case R.id.set_share:// 应用分享
-
+			mController.openShare(SetActivity.this, false);
 			break;
 		case R.id.set_about:// 关于我们
 

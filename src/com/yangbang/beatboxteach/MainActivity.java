@@ -14,6 +14,8 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
 import com.yangbang.beatboxteach.adapter.MyFragmentPageAdapter;
 import com.yangbang.beatboxteach.fragment.TextTeachFragment;
 import com.yangbang.beatboxteach.view.TitleBar;
@@ -37,6 +39,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 		initView();
 		initPageFragment();
+		UmengUpdateAgent.update(this);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
 	}
 
 	private void initView() {

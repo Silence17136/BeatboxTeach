@@ -1,5 +1,7 @@
 package com.yangbang.beatboxteach.base;
 
+import com.umeng.analytics.MobclickAgent;
+
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -12,6 +14,18 @@ public abstract class BaseActivity extends Activity {
 			setContentView(getContentViewID());
 		}
 		initView();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
 	}
 
 	protected abstract void initView();

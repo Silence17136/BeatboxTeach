@@ -1,9 +1,6 @@
 package com.yangbang.beatboxteach.fragment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,9 +13,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
+import com.umeng.analytics.MobclickAgent;
 import com.yangbang.beatboxteach.R;
 import com.yangbang.beatboxteach.VoiceActivity;
 import com.yangbang.beatboxteach.adapter.TextTeachAdapter;
@@ -57,8 +54,8 @@ public class TextTeachFragment extends Fragment implements OnItemClickListener {
 			// class1.getName(), whereMap);
 			List<Title> textTeachs = null;
 			try {
-				textTeachs = MyApplication.dbUtils.findAll(Selector.from(Title.class).where(
-						"type", "=", type));
+				textTeachs = MyApplication.dbUtils.findAll(Selector.from(
+						Title.class).where("type", "=", type));
 			} catch (DbException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -79,8 +76,8 @@ public class TextTeachFragment extends Fragment implements OnItemClickListener {
 			// class1.getName(), whereMap);
 			List<Title> textTeachs = null;
 			try {
-				textTeachs = MyApplication.dbUtils.findAll(Selector.from(Title.class).where(
-						"type", "=", type));
+				textTeachs = MyApplication.dbUtils.findAll(Selector.from(
+						Title.class).where("type", "=", type));
 			} catch (DbException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -94,6 +91,18 @@ public class TextTeachFragment extends Fragment implements OnItemClickListener {
 		}
 		fragment_text_teach_lv.setOnItemClickListener(this);
 		return view;
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPageEnd("MainScreen");
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onPageStart("MainScreen"); // 统计页面
 	}
 
 	@Override

@@ -100,7 +100,7 @@ public class TeachActivity extends BaseActivity {
 	}
 
 	@Override
-	protected void onPause() {
+	public void onPause() {
 		super.onPause();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			activity_teach_webview.onPause(); // 暂停网页中正在播放的视频

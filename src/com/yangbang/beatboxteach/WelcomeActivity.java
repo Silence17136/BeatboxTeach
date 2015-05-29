@@ -1,10 +1,10 @@
 package com.yangbang.beatboxteach;
 
-import com.yangbang.beatboxteach.util.InsertData;
-import com.yangbang.beatboxteach.view.RoundProgressBar;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.yangbang.beatboxteach.util.InsertData;
+import com.yangbang.beatboxteach.view.RoundProgressBar;
 
 public class WelcomeActivity extends Activity {
 	RoundProgressBar roundProBar;
@@ -20,6 +20,12 @@ public class WelcomeActivity extends Activity {
 
 	private void initData() {
 		InsertData.insertAllData(this, roundProBar);
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		this.finish();
 	}
 
 }

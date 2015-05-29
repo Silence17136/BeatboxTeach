@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
+import com.umeng.fb.FeedbackAgent;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
 import com.umeng.socialize.media.UMImage;
@@ -20,6 +21,7 @@ import com.yangbang.beatboxteach.view.TitleBar;
 public class SetActivity extends BaseActivity implements OnClickListener {
 	RelativeLayout set_app_recommend;// 应用推荐
 	RelativeLayout set_app_update;// 检测更新
+	RelativeLayout set_app_feedback;// 检测更新
 	RelativeLayout set_share;// 应用分享
 	RelativeLayout set_about;// 关于我们
 	RelativeLayout set_exit;// 退出
@@ -42,6 +44,8 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 				.findViewById(R.id.set_app_recommend);
 		set_app_update = (RelativeLayout) this
 				.findViewById(R.id.set_app_update);
+		set_app_feedback = (RelativeLayout) this
+				.findViewById(R.id.set_app_feedback);
 		set_share = (RelativeLayout) this.findViewById(R.id.set_share);
 		set_about = (RelativeLayout) this.findViewById(R.id.set_about);
 		set_exit = (RelativeLayout) this.findViewById(R.id.set_exit);
@@ -51,6 +55,7 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 		titlebar.setLeftListener(this);
 		set_app_recommend.setOnClickListener(this);
 		set_app_update.setOnClickListener(this);
+		set_app_feedback.setOnClickListener(this);
 		set_share.setOnClickListener(this);
 		set_about.setOnClickListener(this);
 		set_exit.setOnClickListener(this);
@@ -121,6 +126,10 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 			break;
 		case R.id.set_app_update:// 检测更新
 
+			break;
+		case R.id.set_app_feedback:// 意见反馈
+			FeedbackAgent agent = new FeedbackAgent(this);
+			agent.startFeedbackActivity();
 			break;
 		case R.id.set_share:// 应用分享
 			mController.openShare(SetActivity.this, false);

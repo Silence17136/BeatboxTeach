@@ -25,7 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="数据库更新中..."
+        android:text="正在加载本地数据..."
         android:textColor="#C58D43"
         android:textSize="22sp" />
 

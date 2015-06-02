@@ -63,10 +63,10 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 
 	private void setShare() {
 		// 设置分享内容
-		mController
-				.setShareContent("友盟社会化组件（SDK）让移动应用快速整合社交分享功能，http://www.umeng.com/social");
+		mController.setShareContent("一款beatbox教学软件");
 		// 设置分享图片, 参数2为图片的url地址
-		mController.setShareMedia(new UMImage(this, R.drawable.ic_launcher));
+		mController.setShareMedia(new UMImage(this,
+				"http://3g.gfan.com/details/1040046?erweima"));
 		// 设置分享图片，参数2为本地图片的资源引用
 		// mController.setShareMedia(new UMImage(getActivity(),
 		// R.drawable.icon));

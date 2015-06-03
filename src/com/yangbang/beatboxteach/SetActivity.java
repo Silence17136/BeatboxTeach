@@ -15,7 +15,10 @@ import com.umeng.socialize.sso.SinaSsoHandler;
 import com.umeng.socialize.sso.UMQQSsoHandler;
 import com.umeng.socialize.sso.UMSsoHandler;
 import com.umeng.socialize.weixin.controller.UMWXHandler;
+import com.umeng.update.UmengUpdateAgent;
 import com.yangbang.beatboxteach.base.BaseActivity;
+import com.yangbang.beatboxteach.base.MyApplication;
+import com.yangbang.beatboxteach.util.AdmobUtils;
 import com.yangbang.beatboxteach.view.TitleBar;
 
 public class SetActivity extends BaseActivity implements OnClickListener {
@@ -122,10 +125,10 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.set_app_recommend:// 应用推荐
-
+			AdmobUtils.showYoumiIntegralWall(this);
 			break;
 		case R.id.set_app_update:// 检测更新
-
+			UmengUpdateAgent.update(this);
 			break;
 		case R.id.set_app_feedback:// 意见反馈
 			FeedbackAgent agent = new FeedbackAgent(this);
@@ -135,16 +138,23 @@ public class SetActivity extends BaseActivity implements OnClickListener {
 			mController.openShare(SetActivity.this, false);
 			break;
 		case R.id.set_about:// 关于我们
-
+			startActivity(new Intent(SetActivity.this, AboutActivity.class));
 			break;
 		case R.id.set_exit:// 退出
 			// android.os.Process.killProcess(android.os.Process.myPid());
 			// System.exit(0);
+			MyApplication.getApp().exit();
 			break;
 
 		default:
 			break;
 		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		AdmobUtils.releaseYoumiIntegralWall(this);
+		super.onDestroy();
 	}
 
 	@Override

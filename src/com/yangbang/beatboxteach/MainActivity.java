@@ -19,7 +19,9 @@ import android.widget.TextView;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.yangbang.beatboxteach.adapter.MyFragmentPageAdapter;
+import com.yangbang.beatboxteach.base.MyApplication;
 import com.yangbang.beatboxteach.fragment.TextTeachFragment;
+import com.yangbang.beatboxteach.util.AdmobUtils;
 import com.yangbang.beatboxteach.view.TitleBar;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
@@ -39,10 +41,17 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		MyApplication.getApp().addActivity(this);
 		initView();
 		initPageFragment();
 		UmengUpdateAgent.update(this);
-		myl.init(this);
+		initAdmob();
+	}
+
+	private void initAdmob() {
+		AdmobUtils.initDoudouAdmob(this);
+		AdmobUtils.initYoumiAdmob(this);
+		AdmobUtils.initYoumiInsertScreenAdmob(this);
 	}
 
 	@Override

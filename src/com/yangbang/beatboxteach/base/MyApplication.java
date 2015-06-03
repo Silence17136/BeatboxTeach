@@ -1,10 +1,13 @@
 package com.yangbang.beatboxteach.base;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import android.app.Activity;
 import android.app.Application;
 import android.content.SharedPreferences;
 
 import com.lidroid.xutils.DbUtils;
-import com.yangbang.beatboxteach.util.InsertData;
 
 public class MyApplication extends Application {
 	public static final String IS_FIRST_INSERT = "isFirstInsert";
@@ -12,6 +15,8 @@ public class MyApplication extends Application {
 	// public static DataHelper dataHelper;
 	public static SharedPreferences preferences;
 	public static DbUtils dbUtils;
+	private List<Activity> mList = new LinkedList<Activity>();
+	private static MyApplication instance;
 
 	@Override
 	public void onCreate() {
@@ -32,8 +37,34 @@ public class MyApplication extends Application {
 		return application;
 	}
 
-	// private void initDatabase() {
-	// InsertData.insertAllData();
+	// public synchronized static MyApplication getInstance() {
+	// if (null == instance) {
+	// instance = new MyApplication();
 	// }
+	// return instance;
+	// }
+
+	// add Activity
+	public void addActivity(Activity activity) {
+		mList.add(activity);
+	}
+
+	public void exit() {
+		try {
+			for (Activity activity : mList) {
+				if (activity != null)
+					activity.finish();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			System.exit(0);
+		}
+	}
+
+	public void onLowMemory() {
+		super.onLowMemory();
+		System.gc();
+	}
 
 }

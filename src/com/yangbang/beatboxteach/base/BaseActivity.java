@@ -14,6 +14,7 @@ public abstract class BaseActivity extends Activity {
 			setContentView(getContentViewID());
 		}
 		initView();
+		MyApplication.getApp().addActivity(this);
 	}
 
 	@Override

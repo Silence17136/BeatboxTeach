@@ -64,7 +64,7 @@ public class TitleBar extends LinearLayout implements OnClickListener {
 
 				@Override
 				public void onClick(View v) {
-					activity.finish();
+					activity.onBackPressed();
 				}
 			});
 		} else {

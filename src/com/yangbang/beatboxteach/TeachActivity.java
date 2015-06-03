@@ -1,5 +1,6 @@
 package com.yangbang.beatboxteach;
 
+import net.youmi.android.spot.SpotManager;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.yangbang.beatboxteach.base.BaseActivity;
 import com.yangbang.beatboxteach.base.MyApplication;
 import com.yangbang.beatboxteach.entity.Teaching;
 import com.yangbang.beatboxteach.entity.Voice;
+import com.yangbang.beatboxteach.util.AdmobUtils;
 import com.yangbang.beatboxteach.view.TitleBar;
 
 public class TeachActivity extends BaseActivity {
@@ -31,6 +33,7 @@ public class TeachActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		AdmobUtils.initYoumiAdmobBanner(this);
 	}
 
 	@Override
@@ -70,6 +73,7 @@ public class TeachActivity extends BaseActivity {
 				activity_teach_content_tv.setText(teaching.getContent()
 						.replace("\\n", "\n"));
 			} else if (teaching.getType() == 2) {// 视频
+				AdmobUtils.showYoumiInsertScreenAdmob(this);
 				activity_teach_webview.setVisibility(View.VISIBLE);
 				activity_teach_scroll.setVisibility(View.GONE);
 				activity_teach_webview.loadUrl(teaching.getContent());
@@ -98,13 +102,49 @@ public class TeachActivity extends BaseActivity {
 			}
 		}
 	}
+	
+	public void onBackPressed() {
+
+	    // 如果有需要，可以点击后退关闭插播广告。
+	    if (!SpotManager.getInstance(this).disMiss()) {
+	        // 弹出退出窗口，可以使用自定义退屏弹出和回退动画,参照demo,若不使用动画，传入-1
+	        super.onBackPressed();
+	    }
+	}
+
+	@Override
+
+	protected void onStop() {
+
+	    // 如果不调用此方法，则按home键的时候会出现图标无法显示的情况。
+	    SpotManager.getInstance(this).onStop();
+	    super.onStop();
+	}
+
+	@Override
+
+	protected void onDestroy() {
+
+	    SpotManager.getInstance(this).onDestroy();
+	    super.onDestroy();
+	}
+
+	// @Override
+	// public void onBackPressed() {
+	// if (activity_teach_webview.canGoBack()) {
+	// activity_teach_webview.goBack();
+	// } else {
+	// super.onBackPressed();
+	// }
+	// }
 
 	@Override
 	public void onPause() {
+		activity_teach_webview.reload();
 		super.onPause();
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			activity_teach_webview.onPause(); // 暂停网页中正在播放的视频
-		}
+		// if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+		// activity_teach_webview.onPause(); // 暂停网页中正在播放的视频
+		// }
 	}
 
 	@Override

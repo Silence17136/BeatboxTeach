@@ -18,6 +18,7 @@ import com.yangbang.beatboxteach.base.BaseActivity;
 import com.yangbang.beatboxteach.base.MyApplication;
 import com.yangbang.beatboxteach.entity.Title;
 import com.yangbang.beatboxteach.entity.Voice;
+import com.yangbang.beatboxteach.util.AdmobUtils;
 import com.yangbang.beatboxteach.view.TitleBar;
 
 public class VoiceActivity extends BaseActivity implements OnClickListener,

@@ -11,7 +11,15 @@
         android:layout_height="wrap_content" >
     </com.yangbang.beatboxteach.view.TitleBar>
 
-    <WebView
+    <ProgressBar
+        android:id="@+id/web_view_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_2"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/progressbar_color" />
+
+    <com.yangbang.beatboxteach.view.MyWebView
         android:id="@+id/activity_teach_webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

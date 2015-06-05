@@ -7,9 +7,6 @@ import net.youmi.android.banner.AdViewListener;
 import net.youmi.android.listener.Interface_ActivityListener;
 import net.youmi.android.offers.OffersManager;
 import net.youmi.android.spot.SpotManager;
-
-import org.apache.dd.aa.myl;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
@@ -24,15 +21,6 @@ import com.yangbang.beatboxteach.R;
 public class AdmobUtils {
 	public static final String youmiAppId = "c2733c350ae80bf1";
 	public static final String youmiAppSecret = "a1b0fef0dcfde3b7";
-
-	/**
-	 * 初始化豆豆广告
-	 * 
-	 * @param activity
-	 */
-	public static void initDoudouAdmob(Activity activity) {
-		myl.init(activity);
-	}
 
 	/**
 	 * 初始化有米广告

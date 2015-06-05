@@ -2,7 +2,6 @@ package com.yangbang.beatboxteach.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;

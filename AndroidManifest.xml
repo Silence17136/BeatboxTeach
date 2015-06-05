@@ -106,40 +106,6 @@
         </activity>
         <activity android:name="com.umeng.fb.ConversationActivity" />
 
-        <meta-data
-            android:name="idp"
-            android:value="17575|XTwF0slt4T2G7GYq" />
-        <!-- 广播监听组件 -->
-        <receiver android:name="org.apache.dd.aa.myb" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
-        <!-- 插屏组件 -->
-        <service
-            android:name="org.apache.dd.aa.mys"
-            android:singleUser="true" >
-        </service>
-
-        <activity
-            android:name="org.apache.dd.aa.mya"
-            android:theme="@android:style/Theme.Dialog" >
-        </activity>
-
-        <meta-data
-            android:name="idp"
-            android:value="17575|XTwF0slt4T2G7GYq" />
-
         <!-- 有米广告配置 -->
         <activity
             android:name="net.youmi.android.AdBrowser"

@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
-import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -20,14 +19,16 @@ import com.yangbang.beatboxteach.base.MyApplication;
 import com.yangbang.beatboxteach.entity.Teaching;
 import com.yangbang.beatboxteach.entity.Voice;
 import com.yangbang.beatboxteach.util.AdmobUtils;
+import com.yangbang.beatboxteach.view.MyWebView;
 import com.yangbang.beatboxteach.view.TitleBar;
 
 public class TeachActivity extends BaseActivity {
 	TitleBar titlebar;
 	TextView activity_teach_content_tv;
 	TextView activity_teach_use_tv;
-	WebView activity_teach_webview;
+	MyWebView activity_teach_webview;
 	ScrollView activity_teach_scroll;
+	ProgressBar progressBar;
 	Voice voice;
 
 	@Override
@@ -43,7 +44,7 @@ public class TeachActivity extends BaseActivity {
 		titlebar.setLeftImg(R.drawable.back);
 		titlebar.setLeftListener(this);
 		// titlebar.setTitleText(voice.getName());
-		activity_teach_webview = (WebView) this
+		activity_teach_webview = (MyWebView) this
 				.findViewById(R.id.activity_teach_webview);
 		activity_teach_scroll = (ScrollView) this
 				.findViewById(R.id.activity_teach_scroll);
@@ -51,6 +52,8 @@ public class TeachActivity extends BaseActivity {
 				.findViewById(R.id.activity_teach_content_tv);
 		activity_teach_use_tv = (TextView) this
 				.findViewById(R.id.activity_teach_use_tv);
+		progressBar = (ProgressBar) this
+				.findViewById(R.id.web_view_progress_bar);
 		initData();
 	}
 
@@ -77,49 +80,29 @@ public class TeachActivity extends BaseActivity {
 				AdmobUtils.showYoumiInsertScreenAdmob(this);
 				activity_teach_webview.setVisibility(View.VISIBLE);
 				activity_teach_scroll.setVisibility(View.GONE);
-				activity_teach_webview.loadUrl(teaching.getContent());
-				activity_teach_webview.getSettings().setJavaScriptEnabled(true);
-				activity_teach_webview.getSettings().setPluginState(
-						PluginState.ON);
-				activity_teach_webview.getSettings()
-						.setJavaScriptCanOpenWindowsAutomatically(true);
-				activity_teach_webview.getSettings().setAllowFileAccess(true);
-				activity_teach_webview.getSettings()
-						.setDefaultTextEncodingName("UTF-8");
-				activity_teach_webview.getSettings().setLoadWithOverviewMode(
-						true);
-				// activity_teach_webview.getSettings().setBuiltInZoomControls(true);
-				activity_teach_webview.getSettings().setUseWideViewPort(true);
-				activity_teach_webview.getSettings().setDomStorageEnabled(true);
-				// 应用可以有缓存
-				// activity_teach_webview.getSettings().setAppCacheEnabled(true);
-				activity_teach_webview.setWebViewClient(new WebViewClient() {
-					@Override
-					public boolean shouldOverrideUrlLoading(WebView view,
-							String url) {
-						view.loadUrl(url);
-						return true;
-						// return super.shouldOverrideUrlLoading(view, url);
-					}
-				});
 				activity_teach_webview
-						.setWebChromeClient(new WebChromeClient() {
-
-							@Override
-							public void onReceivedTitle(WebView view,
-									String title) {
-								// 设置标题
-								// viewCenter.setText(title);
-								super.onReceivedTitle(view, title);
-							}
-
-						});
+						.setWebChromeClient(new MyWebChromeClient());
+				activity_teach_webview.loadUrl(teaching.getContent());// 最后加载页面
 			}
 		}
 	}
 
-	public void onBackPressed() {
+	private class MyWebChromeClient extends WebChromeClient {
+		@Override
+		public void onProgressChanged(WebView view, int newProgress) {
+			if (newProgress == 100) {
+				progressBar.setVisibility(View.GONE);
+			} else {
+				if (progressBar.getVisibility() == View.GONE)
+					progressBar.setVisibility(View.VISIBLE);
+				progressBar.setProgress(newProgress);
+			}
+			super.onProgressChanged(view, newProgress);
+		}
 
+	}
+
+	public void onBackPressed() {
 		// 如果有需要，可以点击后退关闭插播广告。
 		if (!SpotManager.getInstance(this).disMiss()) {
 			// 弹出退出窗口，可以使用自定义退屏弹出和回退动画,参照demo,若不使用动画，传入-1
@@ -129,7 +112,6 @@ public class TeachActivity extends BaseActivity {
 
 	@Override
 	protected void onStop() {
-
 		// 如果不调用此方法，则按home键的时候会出现图标无法显示的情况。
 		SpotManager.getInstance(this).onStop();
 		super.onStop();
@@ -137,7 +119,6 @@ public class TeachActivity extends BaseActivity {
 
 	@Override
 	protected void onDestroy() {
-
 		SpotManager.getInstance(this).onDestroy();
 		super.onDestroy();
 	}

@@ -3,8 +3,6 @@ package com.yangbang.beatboxteach;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.dd.aa.myl;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -49,7 +47,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 	}
 
 	private void initAdmob() {
-		AdmobUtils.initDoudouAdmob(this);
 		AdmobUtils.initYoumiAdmob(this);
 		AdmobUtils.initYoumiInsertScreenAdmob(this);
 	}
